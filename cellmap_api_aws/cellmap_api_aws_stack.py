@@ -1,3 +1,4 @@
+import fibsem_metadata
 from aws_cdk import (
     aws_ec2 as ec2,
     aws_rds as rds,
@@ -45,5 +46,6 @@ class CellmapApiAwsStack(cdk.Stack):
         cdk.CfnOutput(self, 'dbEndpoint', value=rds_instance.instance_endpoint.hostname)
         cdk.CfnOutput(self, 'secretName', value=rds_instance.secret.secret_name)
 
-        lambda_func = aws_lambda.
+        lambda_func = aws_lambda.Function(self, "cellmpa-api-lambda", runtime=aws_lambda.Runtime.PYTHON_3_9,
+        code=aws_lambda.Code.from_asset(fibsem_metadata.__path__))
 
