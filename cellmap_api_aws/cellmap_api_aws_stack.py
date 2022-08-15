@@ -45,5 +45,5 @@ class CellmapApiAwsStack(cdk.Stack):
         cdk.CfnOutput(self, 'dbEndpoint', value=rds_instance.instance_endpoint.hostname)
         cdk.CfnOutput(self, 'secretName', value=rds_instance.secret.secret_name)
 
-        
+        lambda_func = aws_lambda.
 
